@@ -196,6 +196,13 @@ document.addEventListener('DOMContentLoaded', () => {
             deletereceipt(index, account);
         }
     });
+    document.body.addEventListener('touchend', (e) => {
+        if (e.target.classList.contains('delete')) {
+            const index = e.target.getAttribute('data-index');
+            const account = e.target.getAttribute('data-account')
+            deletereceipt(index, account);
+        }
+    });
 
     // Filter receipts based on search input
     // function filterreceipts(searchInput, list) {
