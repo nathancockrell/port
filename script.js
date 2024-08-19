@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const allReceipts = document.getElementById(`all-receipts`)
     const allReceiptsSum = document.getElementById(`allReceiptsSum`)
     const bodyDiv = document.getElementById("body-div")
+    const options = document.querySelectorAll(".options")
     let USDollar = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
@@ -66,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(!accounts.includes(receipt.account)){
                 accounts.push(receipt.account);
                 total = 0;
+                
+                
                 const div = document.createElement('div');
                 div.setAttribute("id", `${receipt.account}-div`)
                 div.classList.add("container")
@@ -94,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const ul = document.getElementById(receipt.account);
                     let htmlTotal = sum.innerHTML;
                     total= Number(htmlTotal.substring(1,total.length));
-                    console.log("Number total from html" + total + "for " + receipt.account)
+                    
                     total= total + Number(receipt.amount);
                     sum.innerHTML = `${USDollar.format(total)}`;
                     addToAccount(receipt, ul);
@@ -103,9 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             
         });
+        for(let i=0; i< accounts.length; i++){
+            options.innerHTML+=`<option>${accounts[i]}</option>`
+        }
+
     }
     function addToAccount(receipt, ul) {
-        console.log("add to account")
+        
         
         const ali = document.createElement("li")
         ali.innerHTML = `${receipt.date}<br>${USDollar.format(receipt.amount)}`
