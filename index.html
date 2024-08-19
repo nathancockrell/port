@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="body-div">
+    <p id="date-display"></p>
+    <div class="container">
+        <h1>Add Receipt</h1>
+        <form id="receiptForm">
+            <div class="main-input">
+                <input type="date" id="date" name="date" required>
+                <input type="number" id="amount" name="amount" placeholder="$ 0.00" required step="0.1">
+            </div>
+            <input list="account-options" id="account" name="account" placeholder="Enter name of account">
+            <datalist id="account-options">
+                
+            </datalist>
+            <input list="account-options" id="account2" name="account" placeholder="Enter name of account">
+            <datalist id="account-options2">
+                
+            </datalist>
+            <textarea id="notes" name="notes" placeholder="Notes"></textarea>
+            <button type="submit">Add Receipt</button>
+        </form>
+    </div>
+    <!-- <div class="container">
+        <h1>Make a transfer</h1>
+        <form id="transferForm">
+            <input type="date" id="date2" name="date" required>
+            <input list="account-options" id="account2" name="account" placeholder="Enter name of account" required>
+            <datalist id="account-options2">
+                
+            </datalist>
+            <input list="account-options" id="account3" name="account" placeholder="Enter name of account" required>
+            <datalist id="account-options3">
+                
+            </datalist>
+            
+            <input type="number" id="amount2" name="amount" placeholder="$" required step="0.1">
+            <textarea id="notes2" name="notes" placeholder="Notes"></textarea>
+            <button type="submit">Add Transfer</button>
+        </form>
+    </div> -->
+    <div class="container">
+        <h1>All receipts</h1>
+        <h2 id="allReceiptsSum"></h2>
+        <hr>
+        <ul id="all-receipts"></ul>
+    </div>
+</div>
+
+    <script src="script.js">
+        
+    </script>
+</body>
+</html>
