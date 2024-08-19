@@ -21,8 +21,8 @@ body {
        
     text-align: center;
     position: fixed;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     margin:0;
     padding:1px 0;
     top: 0;
@@ -32,14 +32,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .header > * {
     margin:0;
     max-width:1050px; 
 }
 .header-img {
-    background-color:aquamarine;
-    height:15px;
+    background-color:rgba(186, 255, 232, 0.5);
+    height:36px;
 }
 #date {
     width:50%;
@@ -60,6 +61,9 @@ body {
     width: 300px;
     margin:0 5px 5px 5px;
     height:fit-content;
+}
+.form {
+    background: rgb(186, 255, 232);
 }
 .container h1 {
     margin:0 0 1rem 0;
@@ -105,30 +109,46 @@ input, select, textarea {
 .search-container button:hover {
     background-color: #0056b3;
 }
+.desc {
+    margin:0;
+    color:rgb(141, 141, 141)
+}
+.desc-acc {
+    color:black;
+    background:#d0d0d0;
+}
+.list h1 {
+    background:#d0d0d0;
+    padding: 0 3px;
+    border-radius: 4px;
+}
 h2 {
-    background: #e9ecef ;
+    background: #ebebeb ;
     padding: 3px;
     border-radius: 4px;
+    margin:0;
+    font-weight: normal;
+    font-size: 2em;
 }
 ul {
     list-style: none;
     padding: 0;
-    max-height:300px;
+    max-height:250px;
     overflow-y: scroll;
 }
 li {
     margin: 10px 0;
-    padding: 10px;
+    padding: 6px;
     background: #ffffff;
-    border:1px solid black;
+    border:1px solid rgb(189, 189, 189);
     border-radius: 4px;
     position: relative;
 }
 button.delete {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 10px;
+    top: 0px;
+    right: 0px;
+    padding: 5px 11px;
     background-color: #ffffff;
     color: red;
     border: 1px solid red;

@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         receipts.forEach((receipt, index) => {
             const li = document.createElement('li');
             li.innerHTML = `
-                ${receipt.date}  ||  ${USDollar.format(receipt.amount)} <br>
-                ${receipt.account ? `<strong>Account: </strong> ${receipt.account} <br>` : ''}
-                ${receipt.notes ? `<strong>Notes:</strong> ${receipt.notes} <br>` : ''}
+                ${receipt.date}  ||  ${USDollar.format(receipt.amount)} 
+                ${receipt.account ? `<p class="desc">Account:  <span class="desc-acc">${receipt.account}<span></p>` : ''}
+                ${receipt.notes ? `<p class="desc">Notes: ${receipt.notes}</p>` : ''}
                 <button class="delete" data-index="${index}" data-account="${receipt.account}">X</button>
             `;
             
@@ -113,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
         const ali = document.createElement("li")
-        ali.innerHTML = `${receipt.date}  ||  ${USDollar.format(receipt.amount)}`
+        ali.innerHTML = `${receipt.date}  ||  ${USDollar.format(receipt.amount)}<br>
+        <p class="desc">${receipt.notes}</p>`
         ul.appendChild(ali);
     }
 
