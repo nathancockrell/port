@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load Date
     const dateInput = document.getElementById('date');
-    const dateInput2 = document.getElementById('date2');
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
     const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -49,8 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         receipts.forEach((receipt, index) => {
             const li = document.createElement('li');
             li.innerHTML = `
-                <strong></strong> ${receipt.date} <br>
-                ${USDollar.format(receipt.amount)} <br>
+                ${receipt.date}  ||  ${USDollar.format(receipt.amount)} <br>
                 ${receipt.account ? `<strong>Account: </strong> ${receipt.account} <br>` : ''}
                 ${receipt.notes ? `<strong>Notes:</strong> ${receipt.notes} <br>` : ''}
                 <button class="delete" data-index="${index}" data-account="${receipt.account}">X</button>
@@ -115,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
         const ali = document.createElement("li")
-        ali.innerHTML = `${receipt.date}<br>${USDollar.format(receipt.amount)}`
+        ali.innerHTML = `${receipt.date}  ||  ${USDollar.format(receipt.amount)}`
         ul.appendChild(ali);
     }
 

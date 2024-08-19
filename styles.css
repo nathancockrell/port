@@ -16,16 +16,30 @@ body {
     flex-wrap:wrap;
     margin-top:5rem;
 }
-#date-display {
+.header {
     width:100%;
+       
     text-align: center;
     position: fixed;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(20px);
     margin:0;
-    padding:7px 0;
+    padding:1px 0;
     top: 0;
     left:0;
+    z-index:999;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header > * {
+    margin:0;
+    max-width:1050px; 
+}
+.header-img {
+    background-color:aquamarine;
+    height:15px;
 }
 #date {
     width:50%;

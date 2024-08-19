@@ -8,13 +8,18 @@
 </head>
 <body>
 <div id="body-div">
-    <p id="date-display"></p>
+    <div class="header header-img"></div>
+    <div class="header">
+        <p>Portfolio A</p>
+        <p id="date-display"></p>
+    </div>
+    
     <div class="container">
         <h1>Add Receipt</h1>
         <form id="receiptForm">
             <div class="main-input">
                 <input type="date" id="date" name="date" required>
-                <input type="number" id="amount" name="amount" placeholder="$ 0.00" required step="0.1">
+                <input type="number" id="amount" name="amount" placeholder="$ 0.00" required>
             </div>
             <input list="account-options" id="account" name="account" placeholder="Send to account">
             <datalist id="account-options" class="options">
