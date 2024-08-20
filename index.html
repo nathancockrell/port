@@ -8,15 +8,16 @@
 </head>
 <body>
 <div id="body-div">
-    <div class="header header-img"></div>
+    <div class="header header-img dynamic-color"></div>
     <div class="header">
         <p>Portfolio A</p>
         <p id="date-display"></p>
     </div>
+    <input type="color" id="take-color" class="dynamic-color" placeholder="Change color">
     
-    <div class="container form">
+    <div class="container form dynamic-color">
         <h1>Add Receipt</h1>
-        <form id="receiptForm">
+        <form id="receiptForm" class="">
             <div class="main-input">
                 <input type="date" id="date" name="date" required>
                 <input type="number" id="amount" name="amount" placeholder="$ 0.00" required step="0.01" pattern="[0-9]*">

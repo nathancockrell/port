@@ -9,6 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
             style: 'currency',
             currency: 'USD',
     });
+    let myColor="#baffe8";
+    if(localStorage.getItem("color")) myColor = localStorage.getItem("color");
+    
+    var sheet = document.createElement('style')
+    document.getElementById("take-color").addEventListener("input", function(){
+        myColor = document.getElementById("take-color").value;
+        sheet.innerHTML = `.dynamic-color {background-color: ${myColor};}`;
+        console.log(myColor);
+        localStorage.setItem("color", myColor)
+    })
+    sheet.innerHTML = `.dynamic-color {background-color: ${myColor};}`;
+    document.body.appendChild(sheet);
 
     // Load Date
     const dateInput = document.getElementById('date');
