@@ -2,6 +2,8 @@
 - change delete button to a more button
     - This more button will display a delete button
     - and an edit button
+- custom form validation
+- deleting one side of a transfer deletes both
 
 - ###### Modify account structure
 - Organize receipts by date

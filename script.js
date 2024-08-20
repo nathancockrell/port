@@ -90,14 +90,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // old account
                 else{
-                    
+                    let isNeg = false;
                     const sum = document.getElementById(receipt.account +"-sum");
                     const ul = document.getElementById(receipt.account);
                     let htmlTotal = sum.innerHTML;
-                    total= Number(htmlTotal.substring(1,total.length));
-                    
+                    total= Number(htmlTotal.substring(1,htmlTotal.length));
+                    if(isNaN(total)){
+                        total = Number(htmlTotal.substring(2,htmlTotal.length));
+                        isNeg = true;
+                    }
+                    if (isNeg) total = 0-total;
                     total= total + Number(receipt.amount);
+                    
+                    console.log("total: " + total)
                     sum.innerHTML = `${USDollar.format(total)}`;
+                    console.log("setting total: " + Number(total))
+                    console.log("setting total: " + USDollar.format(total))
                     addToAccount(receipt, ul);
                 }
             }
@@ -128,9 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Delete a receipt from localStorage
     function deletereceipt(index, account) {
         const receipts = JSON.parse(localStorage.getItem('receipts')) || [];
+        if(receipts[index].account !="")removeAccount(account);
         receipts.splice(index, 1);
         localStorage.setItem('receipts', JSON.stringify(receipts));
-        removeAccount(account)
+        
         
         loadreceipts(); // Reload the list after deletion
     }
@@ -164,23 +173,23 @@ document.addEventListener('DOMContentLoaded', () => {
             
         }
         
-        if(account && account2 && !isNaN(amount) && account!=account2 && accounts.includes(account)){
+        if(account && account2 && date && !isNaN(amount) && account!=account2 && accounts.includes(account2)){
             const negAmount = Number((0-Number(amount)))
-            const note1 = "Transfer to " + account2 +" //" + notes;
-            const note2 = "Transfer from " + account +" //" + notes;
+            const note1 = "Transfer from " + account2 +" //" + notes;
+            const note2 = "Transfer to " + account +" //" + notes;
             let receipt = {
                 date,
                 account,
-                amount:negAmount,
-                notes:note1
+                amount,
+                notes:note2
             }
             savereceipt(receipt)
             loadreceipts();
             receipt = {
                 date,
                 account:account2,
-                amount,
-                notes:note2
+                amount:negAmount,
+                notes:note1
             }
             savereceipt(receipt)
             loadreceipts();
