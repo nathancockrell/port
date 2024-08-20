@@ -19,7 +19,7 @@
         <form id="receiptForm">
             <div class="main-input">
                 <input type="date" id="date" name="date" required>
-                <input type="number" id="amount" name="amount" placeholder="$ 0.00" required>
+                <input type="number" id="amount" name="amount" placeholder="$ 0.00" required step="0.01" pattern="[0-9]*">
             </div>
             <input list="account-options" id="account" name="account" placeholder="Send to account">
             <datalist id="account-options" class="options">
