@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 date,
                 account,
                 amount,
-                notes:note2
+                notes:note1
             }
             savereceipt(receipt)
             loadreceipts();
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 date,
                 account:account2,
                 amount:negAmount,
-                notes:note1
+                notes:note2
             }
             savereceipt(receipt)
             loadreceipts();
@@ -214,13 +214,25 @@ document.addEventListener('DOMContentLoaded', () => {
         dateInput.value = formattedDate;
     });
     
-
+const warningModal=document.getElementById("warning")
+// const warningReceipt=document.getElementById("warning-receipt")
+const confirm=document.getElementById("confirm")
+const cancel=document.getElementById("cancel")
     // Handle delete button clicks
     document.body.addEventListener('click', (e) => {
         if (e.target.classList.contains('delete')) {
             const index = e.target.getAttribute('data-index');
             const account = e.target.getAttribute('data-account')
-            deletereceipt(index, account);
+            warningModal.classList.remove("hidden");
+            confirm.addEventListener("click", ()=>{
+                deletereceipt(index, account);
+                warningModal.classList.add("hidden");
+            })
+            cancel.addEventListener("click", ()=>{
+                warningModal.classList.add("hidden");
+            })
+
+            
         }
     });
     document.body.addEventListener('touchend', (e) => {

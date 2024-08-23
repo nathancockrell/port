@@ -32,6 +32,12 @@ body {
     cursor:pointer;
     border:1px solid white;
 }
+#warning {
+    position:fixed;
+    top:40px;
+    background-color: #c82333;
+    border:5px solid black
+}
 .header {
     width:100%;
        
@@ -60,7 +66,7 @@ body {
     height:36px;
 }
 #date {
-    width:50%;
+    max-width:60%;
 }
 #amount {
     width:30%
@@ -136,6 +142,7 @@ input, select, textarea {
 .desc-acc {
     color:black;
     background:#d0d0d0;
+    padding:0 1px;
 }
 .list h1 {
     background:#d0d0d0;
@@ -177,4 +184,21 @@ button.delete {
 }
 button.delete:hover {
     background-color: #c82333;
+}
+
+.button-wrap {
+    width:100%;
+    display:flex;
+    /* padding:4px; */
+}
+.button-wrap button {
+    width:50%;
+}
+#confirm {
+    background-color: #c82333;
+    border: 1px solid rgb(133, 133, 133);
+}
+
+.hidden {
+    display:none;
 }
