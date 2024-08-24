@@ -239,7 +239,14 @@ const cancel=document.getElementById("cancel")
         if (e.target.classList.contains('delete')) {
             const index = e.target.getAttribute('data-index');
             const account = e.target.getAttribute('data-account')
-            deletereceipt(index, account);
+            warningModal.classList.remove("hidden")
+            confirm.addEventListener("touchend", ()=>{
+                deletereceipt(index, account);
+                warningModal.classList.add("hidden");
+            })
+            cancel.addEventListener("touchend", ()=>{
+                warningModal.classList.add("hidden");
+            })
         }
     });
 
